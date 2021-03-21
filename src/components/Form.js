@@ -5,7 +5,7 @@ import {RecipeContext} from '../context/RecipeContext';
 const Form = () => {
 
      const { categories } = useContext(CategoriesContext);
-     const { searchRecipe } = useContext(RecipeContext);
+     const { searchRecipe, saveConsult } = useContext(RecipeContext);
 
      const [ search, saveSearch] = useState({
          name: '',
@@ -25,7 +25,8 @@ const Form = () => {
         className="col-12"
         onSubmit={e => {
             e.preventDefault();
-            searchRecipe(search)
+            searchRecipe(search);
+            saveConsult(true);
         }}>
             <fieldset className="text-center">
                 <legend> Search drinks by Category or Ingredients</legend>
