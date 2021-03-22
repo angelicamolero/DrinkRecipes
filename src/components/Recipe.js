@@ -29,8 +29,19 @@ const Recipe = ({recipe}) => {
 
     //config modal
     const [ modalStyle ] = useState(getModalStyle);
+    const [ open, setOpen ] = useState(false);
 
-    const { saveIdRecipe } = useContext(ModalContext);
+    const classes = useStyles();
+
+    const handleOpen = () => {
+        setOpen(true);
+    }
+
+    const handleClose = () => {
+        setOpen(false);
+    }
+
+    const { recipeInfo, saveIdRecipe, saveRecipe } = useContext(ModalContext);
 
     return(
         <div className="col-md-4 mb-3">
@@ -39,10 +50,28 @@ const Recipe = ({recipe}) => {
                     <img src={recipe.strDrinkThumb} alt={`Image of {receta.strDrink}`} className="card-img-top"/>
                     <div className="card-body">
                         <button 
-                        className="btn btn-block btn-primary"
-                        onClick={() => {
-                            saveIdRecipe(recipe.idDrink)
-                        }}>See Recipe</button>
+                            className="btn btn-block btn-primary"
+                            onClick={() => {
+                                saveIdRecipe(recipe.idDrink)
+                                handleOpen();
+                            }}>See Recipe</button>
+                        <Modal
+                        open={open}
+                        onClose={()=>{
+                            saveIdRecipe(null);
+                            saveRecipe(null);
+                            handleClose();
+                        }}
+                        >
+                            <div style={modalStyle} className={classes.paper}>
+                                <h2>{recipeInfo.strDrink}</h2>
+                                <h3 className="mt-4">Instructions</h3>
+                                <p>
+                                    {recipeInfo.strInstructions}
+                                </p>
+                                <img src={recipeInfo.strDrinkThumb} alt="" className="img-fluid mt-4"/>
+                            </div>
+                        </Modal>
                     </div>
             </div>
         </div>

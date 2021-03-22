@@ -7,7 +7,7 @@ export const ModalContext = createContext();
 const ModalProvider = ({children}) => {
 
     const [ idrecipe, saveIdRecipe ] = useState(null);
-    const [ recipe, saveRecipe ] =  useState({});
+    const [ recipeInfo, saveRecipe ] =  useState({});
 
     //once we have a recipe call the api
     useEffect(() => {
@@ -26,7 +26,9 @@ const ModalProvider = ({children}) => {
     return(
         <ModalContext.Provider
             value={{
-                saveIdRecipe
+                recipeInfo,
+                saveIdRecipe,
+                saveRecipe
             }}
         >
             {children}
