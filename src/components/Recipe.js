@@ -43,6 +43,19 @@ const Recipe = ({recipe}) => {
 
     const { recipeInfo, saveIdRecipe, saveRecipe } = useContext(ModalContext);
 
+    const showIngredients = recipeInfo => {
+        let ingredients = [];
+        for(let i=1; i < 16; i++) {
+            if( recipeInfo[`strIngredient${i}`]){
+                ingredients.push(
+                    <li>{recipeInfo[`strIngredient${i}`]} {recipeInfo[`strMeasure${i}`]}</li>
+                )
+            }
+        }
+        return ingredients;
+        console.log(ingredients);
+    }
+
     return(
         <div className="col-md-4 mb-3">
             <div className="card">
@@ -59,7 +72,7 @@ const Recipe = ({recipe}) => {
                         open={open}
                         onClose={()=>{
                             saveIdRecipe(null);
-                            saveRecipe(null);
+                            saveRecipe({});
                             handleClose();
                         }}
                         >
@@ -70,6 +83,10 @@ const Recipe = ({recipe}) => {
                                     {recipeInfo.strInstructions}
                                 </p>
                                 <img src={recipeInfo.strDrinkThumb} alt="" className="img-fluid mt-4"/>
+                                <h3 className="mt-4">Ingredients</h3>
+                                <ul>
+                                    {showIngredients(recipeInfo)}
+                                </ul>
                             </div>
                         </Modal>
                     </div>
