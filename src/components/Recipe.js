@@ -18,11 +18,19 @@ function getModalStyle() {
 const useStyles = makeStyles(theme => ({
     paper: {
       position: 'absolute',
-      width: 400,
+      width: 850,
+      height: 'auto',
+      borderRadius: 10,
+      textAlign: 'center',
       backgroundColor: theme.palette.background.paper,
       boxShadow: theme.shadows[5],
       padding: theme.spacing(2, 4, 3),
+
+      "@media (max-width: 500px)": {
+        width: 300
+      }
     },
+
 }));
 
 const Recipe = ({recipe}) => {
@@ -59,11 +67,12 @@ const Recipe = ({recipe}) => {
     return(
         <div className="col-md-4 mb-3">
             <div className="card">
-                    <h2 className="card-header">{recipe.strDrink}</h2>
+                    
                     <img src={recipe.strDrinkThumb} alt={`Image of {receta.strDrink}`} className="card-img-top"/>
                     <div className="card-body">
+                    <h2 className="card-header">{recipe.strDrink}</h2>
                         <button 
-                            className="btn btn-block btn-primary"
+                            className="btn btn-block btn-secundary"
                             onClick={() => {
                                 saveIdRecipe(recipe.idDrink)
                                 handleOpen();
@@ -78,12 +87,12 @@ const Recipe = ({recipe}) => {
                         >
                             <div style={modalStyle} className={classes.paper}>
                                 <h2>{recipeInfo.strDrink}</h2>
-                                <h3 className="mt-4">Instructions</h3>
+                                <h3 className="modal-headline mt-4">Instructions</h3>
                                 <p>
                                     {recipeInfo.strInstructions}
                                 </p>
                                 <img src={recipeInfo.strDrinkThumb} alt="" className="img-fluid mt-4"/>
-                                <h3 className="mt-4">Ingredients</h3>
+                                <h3 className="modal-headline mt-4">Ingredients</h3>
                                 <ul>
                                     {showIngredients(recipeInfo)}
                                 </ul>

@@ -29,7 +29,8 @@ const Form = () => {
             saveConsult(true);
         }}>
             <fieldset className="text-center">
-                <legend> Search drinks by Category or Ingredients</legend>
+                <legend className="search-drinks"> Search drinks </legend>
+                <legend> by Category or Ingredients</legend>
             </fieldset>
             <div className="row mt-4">
                 <div className="col-md-4">

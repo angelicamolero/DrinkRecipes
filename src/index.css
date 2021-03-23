@@ -8,14 +8,100 @@ body {
   background-color: #e5e5e5;
   min-height: 100%;
 }
+
+.container {
+  margin-bottom: 40px;
+}
+
 header {
-  background-color: #ec3a49;
+  background-image: url('./img/hero-image.jpg');
+  background-size: cover;
+  height: 100vh;
   color: white;
   padding: 5rem 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 h1 {
   color: white;
   font-weight: 900;
   text-align: center;
-  font-size: 3rem;
+  font-size: 9rem;
+}
+
+h3 {
+  font-weight:100;
+  font-size: 1.3rem;
+  letter-spacing: 9px;
+  text-transform: uppercase;
+}
+
+.modal-headline {
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.search-drinks{
+  font-size: 2rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+form legend {
+  font-weight: 100;
+  font-size: 1rem;
+  letter-spacing: 2px;
+}
+
+.btn-primary {
+    color: #EB6864 !important;
+    border: 2px solid #EB6864 !important;
+    font-size: 1.5rem !important;
+    line-height: 1 !important;
+    background-color: transparent;
+}
+
+.btn-primary:hover {
+  color: #fff !important;
+}
+
+.btn-secundary {
+  border: none !important;
+  color: #EB6864;
+  text-decoration: underline;
+  transition: .5s all;
+}
+
+.btn-secundary:hover {
+  font-size: 1.5rem;
+  color: #EB6864;
+  border: none;
+}
+
+.card {
+  background-color: transparent;
+  border: none;
+}
+
+.card-header {
+  background-color: transparent;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+.img-fluid {
+  width: 45%;
+}
+
+@media (max-width: 500px) {
+  h1 {
+    font-size: 7rem;
+  }
 }
