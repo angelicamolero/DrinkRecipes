@@ -25,8 +25,8 @@ const RecipeProvider = ({children}) => {
         }
         getRecipe();
     }
-       
-    }, [search])
+       // eslint-disable-next-line
+    },[search]);
     return(
         <RecipeContext.Provider
             value={{

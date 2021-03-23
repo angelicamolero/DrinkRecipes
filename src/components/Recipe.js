@@ -61,14 +61,14 @@ const Recipe = ({recipe}) => {
             }
         }
         return ingredients;
-        console.log(ingredients);
+    
     }
 
     return(
         <div className="col-md-4 mb-3">
             <div className="card">
                     
-                    <img src={recipe.strDrinkThumb} alt={`Image of {receta.strDrink}`} className="card-img-top"/>
+                    <img src={recipe.strDrinkThumb} alt={`{receta.strDrink}`} className="card-img-top"/>
                     <div className="card-body">
                     <h2 className="card-header">{recipe.strDrink}</h2>
                         <button 
